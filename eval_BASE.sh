@@ -12,9 +12,6 @@ conda init
 source activate
 conda activate OPBench
 
-# export all_proxy=10.68.161.170:7897
-export all_proxy=
-
 # sleep 600
 
 models=(qwen3-8b)
