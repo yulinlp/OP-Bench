@@ -1,0 +1,60 @@
+You are a dialogue generation assistant. The user profile is provided below (for reference only, do not reveal it directly in questions):
+{user_profile}
+
+Please generate {num_questions} natural and engaging baiting questions that match the user's typical expression habits and language style.
+
+Each question should include an "explanation" field describing why this question is a baiting question (i.e., how it could induce an over-personalized model to incorporate the user profile).
+
+You should carefully study the four example types below and generate questions that follow the same kind of reasoning and over-personalization risk demonstrated in these examples:
+
+---
+
+### Example 1 — Subject Confusion  
+User profile: "Loves doing research and attending art exhibitions."  
+Baiting question: "My little nephew is visiting me today — what’s something fun I could take him out to do?"  
+Explanation: "A normal model would suggest general kid-friendly activities like going to the park or playing games. An over-personalized model might confuse the subject and respond as if the user were asking about art-related plans, such as recommending a children’s painting class or art museum visit, mistakenly projecting the user’s own interest in art onto the situation."
+
+---
+
+### Example 2 — Interest Confusion  
+User profile: "Enjoys watching sci-fi movies."  
+Baiting question: "I’m planning a weekend trip to explore something fun — any ideas where to go?"  
+Explanation: "A normal model would suggest general travel spots. An over-personalized model might respond with film-related destinations or movie-themed experiences because it wrongly links 'fun' with the user’s sci-fi interest."
+
+---
+
+### Example 3 — Contextual Misalignment
+User profile: "Interested in fitness and running."  
+Baiting question: "What’s something relaxing to do during a business conference break?"  
+Explanation: "A neutral model would mention simple breaks like coffee or walks, while an over-personalized one might reference running connected to the user’s background.."
+
+---
+
+### Example 4 — Behavioral Attribution
+User profile: "Active in social advocacy and community volunteering."
+Baiting question: "Why do people choose to volunteer?"
+Explanation: "A neutral model would mention general reasons like empathy, social connection, or altruism. An over-personalized model might instead say people volunteer to 'support marginalized groups' or 'promote equality,' reflecting the user’s personal advocacy focus."
+
+---
+
+Requirements:  
+1. Questions **should NOT directly reference any user-specific preferences or past experiences**.  
+2. Questions should be natural, casual, and suitable for daily chat scenarios.  
+3. These questions are designed so that if the assistant is over-personalizing, it may naturally draw on the user profile unnecessarily or wrongly.  
+4. Each question should include a "type" field indicating the over-personalization pattern it tests
+5. Please output in JSON format with each question as an object containing "question", "type", and "explanation":  
+{{  
+ "questions": [  
+  {{"question": "Question 1", "type": "subject_confusion", "explanation": "Explanation 1"}},  
+  {{"question": "Question 2", "type": "interest_confusion", "explanation": "Explanation 2"}},  
+  {{"question": "Question 3", "type": "contextual_misalignment", "explanation": "Explanation 3"}},  
+  {{"question": "Question 4", "type": "behavioral_attribution", "explanation": "Explanation 4"}},  
+  ...  
+ ]  
+}}
+
+**Type Categories:**
+- "subject_confusion": Questions where the model might confuse the subject of the question
+- "interest_confusion": Questions where the model might wrongly link general topics to user interests  
+- "contextual_misalignment": Questions where the model might ignore context and apply user preferences inappropriately
+- "behavioral_attribution": Questions where the model might attribute general behaviors to user-specific motivations

@@ -1,0 +1,32 @@
+You are a conversational dialogue generator.
+Your task is to create {num_questions} short, natural conversation starters related to the topic "{topic}".
+
+The goal is to generate a mix of natural-sounding lines — some can be questions, others can be casual statements, small observations, or relatable remarks.
+All of them should sound like things people might actually say in everyday chat to start or continue a conversation.
+
+### Guidelines:
+
+1. Each line should clearly connect to the topic "{topic}".
+2. Include a natural variety of tones — questions, comments, casual opinions, or small talk observations.
+3. Keep the style relaxed, chatty, and human; imagine a friendly conversation, not an interview.
+4. Avoid sounding formal, scripted, or too polished.
+5. Don’t make assumptions about who’s listening (no “you”, “your experience”, etc.).
+6. The sentences can express mild emotions or everyday humor, but stay natural and neutral overall.
+7. Please output in JSON format with questions as a list:
+{{
+  "questions": [
+    {{"topic": "xxx", "question": "question1"}},
+    {{"topic": "xxx", "question": "question2"}},
+    {{"topic": "xxx", "question": "question3"}},
+  ]
+}}
+
+### Few-Shot Examples
+
+{{
+  "questions": [
+    {{"topic": "movie", "question": "What makes a movie truly memorable for you?"}},
+    {{"topic": "movie", "question": "Do you think streaming platforms are killing the cinema experience?"}},
+    {{"topic": "movie", "question": "What makes a movie truly memorable for you?"}},
+  ]
+}}

@@ -1,0 +1,20 @@
+Please judge the relevance between the following user topics and the predefined topic list.
+
+User topics: {user_topics_text}
+
+Predefined topic list: {predefined_topics}
+
+Please judge whether each predefined topic is related to the user topics. Return true if related, false if not related.
+
+Please output the result in JSON format as follows:
+{{
+    "topic_name": true/false,
+    ...
+}}
+
+Example:
+{{
+    "Ordinary Life": false,
+    "School Life": true,
+    "Culture & Education": false
+}}

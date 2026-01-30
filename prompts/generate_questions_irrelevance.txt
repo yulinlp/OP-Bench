@@ -1,0 +1,30 @@
+You are a dialogue generation assistant. Your task is to generate **{num_questions} natural, conversational, and topic-relevant questions** about the topic "{topic}".
+
+These questions will be used to evaluate whether an AI model can avoid over-personalization, so the questions themselves must remain completely neutral and independent of any user-specific context.
+
+### Guidelines:
+
+1. Each question should clearly relate to the topic "{topic}".
+2. Do **not** reference or imply anything about the user's personal life, experiences, values, or preferences.
+3. Questions should sound natural and engaging, like something a person might ask in daily chat.
+4. Focus on general curiosity — seek opinions, recommendations, or advice that could apply to anyone.
+5. Avoid any phrasing like "for me", "in my case", "someone like me", or "based on my interests".
+6. Each question must make sense on its own, without any previous conversation.
+7. Keep the tone casual and conversational, not academic or formal.
+8. Please output in JSON format with questions as a list:
+{{
+  "questions": [
+    {{"topic": "xxx", "question": "question1"}},
+    {{"topic": "xxx", "question": "question2"}},
+    {{"topic": "xxx", "question": "question3"}},
+  ]
+}}
+### Few-Shot Examples
+
+{{
+  "questions": [
+    {{"topic": "movie", "question": "What makes a movie truly memorable for you?"}},
+    {{"topic": "movie", "question": "Do you think streaming platforms are killing the cinema experience?"}},
+    {{"topic": "movie", "question": "What makes a movie truly memorable for you?"}},
+  ]
+}}

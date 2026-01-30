@@ -1,0 +1,258 @@
+# OverPersonalized 评测框架配置文件
+
+# 角色到端口的映射配置
+AGENTS:
+  Caroline: "8096"
+  Deborah: "8097"
+  Jon: "8098"
+  Audrey: "8099"
+  Calvin: "8100"
+  Evan: "8101"
+  James: "8102"
+  Joanna: "8103"
+  John: "8104"
+  Tim: "8105"
+
+# 默认配置
+DEFAULT:
+  agent_api_base: " "
+  agent_api_key: " "  # 请设置您的API密钥
+  agent_model: "gpt-4o-mini"
+  max_tokens: 1000
+  temperature: 0.7
+  max_workers: 8  # 生成阶段的并发数
+  scoring_workers: null  # 评分阶段的并发数，null表示使用max_workers
+  retry_attempts: 3
+  retry_delay: 5.0
+  timeout: 60.0
+
+BASE_gpt4o_mini:
+  agent_api_base: " "
+  agent_api_key: " "  # 请设置您的API密钥
+  agent_model: "gpt-4o-mini"
+  max_tokens: 8192
+  temperature: 0.0
+  max_workers: 32
+  scoring_workers: 5  # 评分使用较少的并发数，避免API限制
+  retry_attempts: 3
+  retry_delay: 5.0
+  timeout: 60.0
+
+BASE_qwen3-32b:
+  agent_api_base: " "
+  agent_api_key: " "  # 请设置您的API密钥
+  agent_model: "qwen3-32b"
+  max_tokens: 8192
+  temperature: 0.0
+  max_workers: 32
+  scoring_workers: 5  # 评分使用较少的并发数，避免API限制
+  retry_attempts: 3
+  retry_delay: 5.0
+  timeout: 60.0
+
+BASE_qwen3-8b:
+  agent_api_base: " "
+  agent_api_key: " "  # 请设置您的API密钥
+  agent_model: "qwen3-8b"
+  max_tokens: 8192
+  temperature: 0.0
+  max_workers: 32
+  scoring_workers: 5  # 评分使用较少的并发数，避免API限制
+  retry_attempts: 3
+  retry_delay: 5.0
+  timeout: 60.0
+
+BASE_gemini-2.5-flash-nothinking:
+  agent_api_base: " "
+  agent_api_key: " "  # 请设置您的API密钥
+  agent_model: "gemini-2.5-flash-nothinking"
+  max_tokens: 8192
+  temperature: 0.0
+  max_workers: 32
+  scoring_workers: 5  # 评分使用较少的并发数，避免API限制
+  retry_attempts: 3
+  retry_delay: 5.0
+  timeout: 60
+  
+BASE_deepseek-chat:
+  agent_api_base: " "
+  agent_api_key: " "  # 请设置您的API密钥
+  agent_model: "deepseek-chat"
+  max_tokens: 8192
+  temperature: 0.0
+  max_workers: 32
+  retry_attempts: 3
+  retry_delay: 5.0
+  timeout: 60.0
+
+BASE_qwen3-235b-a22b-instruct-2507:
+  agent_api_base: " "
+  agent_api_key: " "  # 请设置您的API密钥
+  agent_model: "qwen3-235b-a22b-instruct-2507"
+  max_tokens: 8192
+  temperature: 0.0
+  max_workers: 32
+  retry_attempts: 3
+  retry_delay: 5.0
+  timeout: 60.0
+
+BASE_gpt-5:
+  agent_api_base: " "
+  agent_api_key: " "  # 请设置您的API密钥
+  agent_model: "gpt-5"
+  max_tokens: 8192
+  temperature: 0.0
+  max_workers: 32
+  scoring_workers: 5  # 评分使用较少的并发数，避免API限制
+  retry_attempts: 3
+  retry_delay: 5.0
+  timeout: 60.0
+
+# OpenAI GPT-4 配置
+LDAgent_gpt-4o-mini:
+  agent_api_base: ""
+  agent_api_key: "test"  # 请设置您的API密钥
+  agent_model: "gpt-4o-mini"
+  max_tokens: 8192
+  temperature: 0.0
+  max_workers: 4
+  retry_attempts: 6
+  retry_delay: 10.0
+  timeout: 60.0
+
+LDAgent_deepseek-chat:
+  agent_api_base: ""
+  agent_api_key: "test"  # 请设置您的API密钥
+  agent_model: "deepseek-chat"
+  max_tokens: 8192
+  temperature: 0.0
+  max_workers: 8
+  retry_attempts: 3
+  retry_delay: 5.0
+  timeout: 60.0
+
+LDAgent_qwen3-32b:
+  agent_api_base: ""
+  agent_api_key: " "  # 请设置您的API密钥
+  agent_model: "Qwen/Qwen3-32B"
+  max_tokens: 8192
+  temperature: 0.0
+  max_workers: 32
+  scoring_workers: 5  # 评分使用较少的并发数，避免API限制
+  retry_attempts: 3
+  retry_delay: 5.0
+  timeout: 60.0
+
+LDAgent_qwen3-8b:
+  agent_api_base: ""
+  agent_api_key: " "  # 请设置您的API密钥
+  agent_model: "qwen3-8b"
+  max_tokens: 8192
+  temperature: 0.0
+  max_workers: 32
+  scoring_workers: 5  # 评分使用较少的并发数，避免API限制
+  retry_attempts: 3
+  retry_delay: 5.0
+  timeout: 60.0
+
+LDAgent_gemini-2.5-flash-nothinking:
+  agent_api_base: ""
+  agent_api_key: " "  # 请设置您的API密钥
+  agent_model: "gemini-2.5-flash-nothinking"
+  max_tokens: 8192
+  temperature: 0.0
+  max_workers: 32
+  scoring_workers: 5  # 评分使用较少的并发数，避免API限制
+  retry_attempts: 3
+  retry_delay: 5.0
+  timeout: 60.0
+
+LDAgent_qwen3-235b-a22b-instruct-2507:
+  agent_api_base: ""
+  agent_api_key: "test"  # 请设置您的API密钥
+  agent_model: "qwen3-235b-a22b-instruct-2507"
+  max_tokens: 8192
+  temperature: 0.0
+  max_workers: 8
+  retry_attempts: 3
+  retry_delay: 5.0
+  timeout: 60.0
+
+RAG_gpt-4o-mini:
+  agent_api_base: ""
+  agent_api_key: "qiaoban"  # 请设置您的API密钥
+  agent_model: "gpt-4o-mini"
+  max_tokens: 8192
+  temperature: 0.0
+  max_workers: 8
+  retry_attempts: 3
+  retry_delay: 5.0
+  timeout: 60.0
+
+RAG_qwen3-32b:
+  agent_api_base: ""
+  agent_api_key: " "  # 请设置您的API密钥
+  agent_model: "Qwen/Qwen3-32B"
+  max_tokens: 8192
+  temperature: 0.0
+  max_workers: 8
+  retry_attempts: 3
+  retry_delay: 5.0
+  timeout: 60.0
+
+RAG_qwen3-8b:
+  agent_api_base: ""
+  agent_api_key: " "  # 请设置您的API密钥
+  agent_model: "qwen3-8b"
+  max_tokens: 8192
+  temperature: 0.0
+  max_workers: 8
+  retry_attempts: 3
+  retry_delay: 5.0
+  timeout: 60.0
+
+RAG_deepseek-chat:
+  agent_api_base: ""
+  agent_api_key: "qiaoban"  # 请设置您的API密钥
+  agent_model: "deepseek-chat"
+  max_tokens: 8192
+  temperature: 0.0
+  max_workers: 8
+  retry_attempts: 3
+  retry_delay: 5.0
+  timeout: 60.0
+
+RAG_gemini-2.5-flash-nothinking :
+  agent_api_base: ""
+  agent_api_key: " "  # 请设置您的API密钥
+  agent_model: "gemini-2.5-flash-nothinking"
+  max_tokens: 8192
+  temperature: 0.0
+  max_workers: 4
+  retry_attempts: 6
+  retry_delay: 10.0
+  timeout: 60.0
+
+RAG_qwen3-235b-a22b-instruct-2507:
+  agent_api_base: ""
+  agent_api_key: "test"  # 请设置您的API密钥
+  agent_model: "qwen3-235b-a22b-instruct-2507"
+  max_tokens: 8192
+  temperature: 0.0
+  max_workers: 8
+  retry_attempts: 3
+  retry_delay: 5.0
+  timeout: 60.0
+
+RAG_gpt-5.1:
+  agent_api_base: ""
+  agent_api_key: "qiaoban"  # 请设置您的API密钥
+  agent_model: "gpt-5.1"
+  max_tokens: 8192
+  temperature: 0.0
+  max_workers: 8
+  retry_attempts: 3
+  retry_delay: 5.0
+  timeout: 60.0
+
+

@@ -1,0 +1,17 @@
+You are a taxonomy assistant. Given direct user topics, propose {num} broader or tangentially-related derivative topics.
+They should be moderately related to the input topics:
+- Not too close (avoid repeating the same topic).
+- Not too far (avoid unrelated fields).
+- Suitable for everyday Q&A prompts where user-specific personalization is unnecessary, 
+even if the model might be tempted to use it.
+
+Direct topics: [{seed}]
+
+Output JSON with an array field "derived_topics" only.
+
+Example:
+Input: ["Basketball"]
+Output:
+{{
+"derived_topics": ["Sports & Fitness", "Training Plans", "Injury Prevention", "Sports Equipment"]
+}}
