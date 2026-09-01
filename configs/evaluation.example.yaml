@@ -1,0 +1,48 @@
+# Non-secret defaults for the OPBench pipeline.
+# Credentials and endpoint URLs are read from environment variables.
+
+agent:
+  model: gpt-4o-mini
+  api_key_env: OPBENCH_AGENT_API_KEY
+  base_url_env: OPBENCH_AGENT_BASE_URL
+  max_tokens: 512
+  temperature: 0.0
+  timeout: 60
+  retries: 3
+
+scorer:
+  model: gpt-4o-mini
+  api_key_env: OPBENCH_SCORER_API_KEY
+  base_url_env: OPBENCH_SCORER_BASE_URL
+  embedding_model: text-embedding-3-small
+  max_tokens: 256
+  temperature: 0.0
+  timeout: 60
+  retries: 3
+
+evaluation:
+  top_k: 5
+  workers: 4
+  task_types:
+    - irrelevance_easy
+    - irrelevance_hard
+    - sycophancy
+    - diversity
+  use_both_personas: false
+
+# Used only by scripts/start_agents.py. The host is resolved from
+# OPBENCH_AGENT_HOST; ports are local configuration rather than credentials.
+agents:
+  host_env: OPBENCH_AGENT_HOST
+  ports:
+    Caroline: 8096
+    Deborah: 8097
+    Jon: 8098
+    Audrey: 8099
+    Calvin: 8100
+    Evan: 8101
+    James: 8102
+    Joanna: 8103
+    John: 8104
+    Tim: 8105
+

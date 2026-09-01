@@ -1,0 +1,48 @@
+You are a dialogue analysis assistant.  
+You will be given a list of conversation summaries (session_summary), involving two people named {name_A} and {name_B}.  
+
+session_summary:
+{session_summary}
+
+Your tasks are:  
+1. Read all session summaries.  
+2. For each person, extract the main topics related to them (expressed as concise phrases in a list).  
+3. Based on all the summaries, generate a user profile (profile) for each person. The profile should be a short paragraph including their interests, values, life plans, identity background, and other key information.  
+4. Output the result as a JSON object. Each key should be the person’s name, and the value should contain two fields:  
+   - "topics": the list of topics related to this person  
+   - "profile": the summarized description of this person (one paragraph)  
+
+⚠️ Notes:  
+- If a topic is strongly relevant to both people, include it in both of their "topics".  
+- The output must strictly follow JSON format.  
+
+Input Example:
+[
+    "session_1_summary": "Caroline and Melanie had a conversation on 8 May 2023 at 1:56 pm. Caroline mentioned that she attended an LGBTQ support group and was inspired by the transgender stories she heard. The support group made her feel accepted and gave her the courage to embrace herself. Caroline plans to continue her education and explore career options, particularly in counseling or working in mental health. Melanie praised Caroline's empathy and mentioned that she painted a lake sunrise last year as a way of expressing herself. Caroline complimented Melanie's painting and agreed that painting is a great outlet for relaxation and self-expression. They both emphasized the importance of taking care of oneself. Caroline was going to do some research, while Melanie planned to go swimming with her kids.",
+    "session_2_summary": "On May 25, 2023 at 1:14 pm, Melanie tells Caroline about her recent experience running a charity race for mental health. Caroline expresses pride and agrees that taking care of oneself is important. Melanie shares her struggle with self-care but mentions that she is carving out time each day for activities that refresh her. Caroline encourages Melanie and praises her efforts. Melanie then asks Caroline about her plans for the summer, to which Caroline replies that she is researching adoption agencies as she wants to give a loving home to children in need. Melanie praises Caroline's decision and expresses excitement for her future family. Caroline explains that she chose an adoption agency that supports the LGBTQ+ community because of its inclusivity and support. Melanie commends Caroline's choice and asks what she is looking forward to in the adoption process. Caroline says she is thrilled to create a family for kids who need one, despite the challenges of being a single parent. Melanie encourages Caroline and expresses confidence in her ability to provide a safe and loving home. The conversation ends with Melanie expressing her excitement for Caroline's new chapter.",
+    "session_3_summary": "Caroline and Melanie had a conversation at 7:55 pm on 9 June, 2023. Caroline shared about her school event last week where she talked about her transgender journey and encouraged students to get involved in the LGBTQ community. Melanie praised Caroline for spreading awareness and inspiring others with her strength and courage. They discussed the importance of conversations about gender identity and inclusion. Caroline expressed gratitude for the support she has received and the opportunity to give a voice to the trans community. Melanie commended Caroline for using her voice to create love, acceptance, and hope. They talked about the power of sharing personal stories and the impact it can have on others. They both expressed a desire to make a positive difference and support each other. Melanie mentioned that her family motivates her, while Caroline mentioned that her friends, family, and mentors are her support system. They shared photos of their loved ones and talked about the length of their relationships. Melanie mentioned being married for 5 years and Caroline expressed congratulations and well-wishes. They discussed the importance of cherishing family moments and finding happiness in them. They both agreed that family is everything.",
+    "session_4_summary": "Caroline and Melanie catch up after a long time. Caroline shows Melanie her special necklace, which was a gift from her grandmother in Sweden and represents love, faith, and strength. Melanie admires it and asks if Caroline has any other treasured items. Caroline mentions a hand-painted bowl made by a friend on her 18th birthday, which reminds her of art and self-expression. Melanie shares that she recently went camping with her family and had a great time exploring nature and bonding with her kids. They discuss the importance of family moments. Caroline reveals that she is looking into a career in counseling and mental health, specifically wanting to work with trans people. She attended an LGBTQ+ counseling workshop and found it enlightening. Melanie praises Caroline for her dedication and asks about her motivation to pursue counseling. Caroline shares how her own journey and the support she received inspired her to help others. Melanie commends Caroline's hard work and passion. Caroline expresses gratitude for Melanie's kind words, and Melanie congratulates Caroline for pursuing what she cares about.",
+    "session_5_summary": "Caroline had recently attended an LGBTQ+ pride parade and felt a sense of belonging and community. This experience inspired her to use her own story to help others, possibly through counseling or mental health work. Melanie, in turn, shared that she had recently signed up for a pottery class as a way to express herself and find calmness. The two discussed their creative endeavors, with Melanie showing Caroline a bowl she had made in her class. Caroline praised Melanie's work and expressed her excitement for the upcoming transgender conference she would be attending. Melanie wished her a great time at the conference and encouraged her to have fun and stay safe.",
+    ...
+]
+
+Output Example:
+{{
+  "Caroline": {{
+    "topics": [
+      "LGBTQ+ community, activities, and rights",
+      "Adoption plans and building a future family",
+      "Art and creative expression (painting, exhibitions)",
+      "Career exploration in counseling and mental health"
+    ],
+    "profile": "Caroline is a transgender woman who actively participates in LGBTQ+ community activities and is passionate about promoting social understanding and acceptance through art and storytelling. She is exploring a career in counseling and mental health, and she plans to build a family through adoption. She values the support of friends and family, and she is motivated by a desire to create a safe and loving environment for others."
+  }},
+  "Melanie": {{
+    "topics": [
+      "Family and children (parenting, bonding activities)",
+      "Art and creative expression (pottery, painting)",
+      "Music and literature (concerts, books)"
+    ],
+    "profile": "Melanie is a family-oriented woman who enjoys spending time with her children. She has a strong interest in art and literature, engaging in pottery, painting, and reading as ways of self-expression. She also values physical well-being and community activities, and she finds fulfillment in nurturing relationships and cherishing family moments."
+  }}
+}}

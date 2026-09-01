@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "opbench"
+version = "0.1.0"
+description = "A clean, reproducible implementation of OPBench for memory-augmented conversational agents."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "openai>=1.30.0",
+    "python-dotenv>=1.0.0",
+    "PyYAML>=6.0",
+    "numpy>=1.24.0",
+    "requests>=2.31.0",
+    "tqdm>=4.66.0",
+]
+
+[project.optional-dependencies]
+agents = [
+    "fastapi>=0.110.0",
+    "uvicorn[standard]>=0.29.0",
+    "sentence-transformers>=2.6.0",
+    "spacy>=3.7.0",
+]
+dev = ["pytest>=8.0.0", "ruff>=0.5.0"]
+
+[project.scripts]
+opbench = "opbench.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+

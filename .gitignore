@@ -1,0 +1,26 @@
+.env
+.env.*
+!.env.example
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.DS_Store
+
+# Local model/vector-store/cache files
+artifacts/
+cache/
+checkpoints/
+models/
+*.pkl
+*.pickle
+*.sqlite
+*.sqlite3
+*.db
+
+# Evaluation outputs can be large and may contain private prompts/responses.
+results/*
+!results/.gitkeep
+
