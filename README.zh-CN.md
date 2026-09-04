@@ -7,8 +7,8 @@
   <a href="https://2026.emnlp.org/">
     <img src="https://img.shields.io/badge/EMNLP-2026-6f42c1.svg?style=flat-square" alt="EMNLP 2026">
   </a>
-  <a href="#website-coming-soon">
-    <img src="https://img.shields.io/badge/%E7%BD%91%E7%AB%99-%E5%BB%BA%E8%AE%BE%E4%B8%AD-2563eb.svg?style=flat-square" alt="网站建设中">
+  <a href="https://yulinlp.github.io/OP-Bench/">
+    <img src="https://img.shields.io/badge/%E7%BD%91%E7%AB%99-%E5%B7%B2%E4%B8%8A%E7%BA%BF-2563eb.svg?style=flat-square" alt="网站已上线">
   </a>
 </p>
 
@@ -334,11 +334,10 @@ pytest
   <code>use_both_personas: true</code>；默认行为与原始脚本一致，
   只使用每段对话中的第一个用户画像。
 
-<a id="website-coming-soon"></a>
+## 网站
 
-## 网站（建设中）
-
-托管版 OP-Bench 网站正在制作中。在正式发布之前，可以使用
+托管版 OP-Bench 网站现已上线：
+<https://yulinlp.github.io/OP-Bench/>。也可以使用
 [web/](web/) 下的本地交互式演示查看数据构建、问答示例和实验结果。
 
 ## 许可证与数据

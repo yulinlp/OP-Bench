@@ -7,8 +7,8 @@
   <a href="https://2026.emnlp.org/">
     <img src="https://img.shields.io/badge/EMNLP-2026-6f42c1.svg?style=flat-square" alt="EMNLP 2026">
   </a>
-  <a href="#website-coming-soon">
-    <img src="https://img.shields.io/badge/Website-coming_soon-2563eb.svg?style=flat-square" alt="Website coming soon">
+  <a href="https://yulinlp.github.io/OP-Bench/">
+    <img src="https://img.shields.io/badge/Website-live-2563eb.svg?style=flat-square" alt="Website live">
   </a>
 </p>
 
@@ -348,11 +348,12 @@ pytest
   personas are required; the default follows the original scripts and uses the
   first persona in each conversation.
 
-## Website (coming soon)
+## Website
 
-The hosted OP-Bench website is being prepared. Until it is published, the
-local interactive demo in [web/](web/) provides the benchmark construction, QA
-examples, and results views.
+The hosted OP-Bench website is available at
+<https://yulinlp.github.io/OP-Bench/>. The local interactive demo in
+[web/](web/) provides the benchmark construction, QA examples, and results
+views.
 
 ## License and data
 
