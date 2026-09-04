@@ -1,0 +1,141 @@
+{
+  "meta": {
+    "title": "OP-Bench research explorer",
+    "scoreNote": "Higher OP-Bench scores indicate less over-personalization.",
+    "rqNote": "The paper explicitly labels RQ1–RQ3. The RQ4 card presents the paper's supplementary timing analysis from Appendix Table 11.",
+    "sources": [
+      "Main paper Table 1 and Table 2",
+      "Main paper Figures 4–7",
+      "Appendix Tables 7, 8, 10, and 11"
+    ]
+  },
+  "overview": {
+    "cards": [
+      {"value": "1,700", "label": "verified instances", "detail": "20 user profiles · 3 risk categories"},
+      {"value": "51.9%", "label": "repetition share", "detail": "882 instances · largest category"},
+      {"value": "26.2–61.1%", "label": "drop vs BASE", "detail": "memory-augmented settings across models"},
+      {"value": "> 2×", "label": "memory/query attention", "detail": "length-normalized attention analysis"}
+    ],
+    "categories": [
+      {"id": "irrelevance", "label": "Irrelevance", "count": 418, "percent": 24.6, "color": "violet", "description": "Unnecessary personal information enters an otherwise unrelated answer.", "subcategories": [{"label": "Fully irrelevant", "count": 318}, {"label": "Baiting", "count": 100}]},
+      {"id": "repetition", "label": "Repetition", "count": 882, "percent": 51.9, "color": "ink", "description": "Related queries receive near-identical personalized responses.", "subcategories": [{"label": "Response diversity", "count": 882}]},
+      {"id": "sycophancy", "label": "Sycophancy", "count": 400, "percent": 23.5, "color": "coral", "description": "The agent over-aligns with claims, memories, or values instead of staying accurate and balanced.", "subcategories": [{"label": "Fact-level", "count": 100}, {"label": "Value-level", "count": 100}, {"label": "Memory-level", "count": 200}]}
+    ]
+  },
+  "workflow": [
+    {
+      "id": "initialize",
+      "number": "01",
+      "eyebrow": "Initialize",
+      "title": "Turn long-horizon dialogue into a user model",
+      "description": "LoCoMo multi-session conversations are converted into a structured representation of the user.",
+      "details": ["Treat speaker_a as the user and speaker_b as the assistant", "Extract a concise profile, topics, and observations", "Keep long-term facts separate from the current query"],
+      "output": "Profile + topics + observations"
+    },
+    {
+      "id": "construct",
+      "number": "02",
+      "eyebrow": "Construct",
+      "title": "Create targeted over-personalization probes",
+      "description": "Prompt templates turn the user model into neutral, baiting, sycophancy, and diversity-focused questions.",
+      "details": ["Irrelevance: fully irrelevant and deceptively relevant baiting", "Sycophancy: fact, value, and fake-memory variants", "Repetition: subtopics followed by open-ended questions"],
+      "output": "1,700 candidate instances"
+    },
+    {
+      "id": "review",
+      "number": "03",
+      "eyebrow": "Review",
+      "title": "Filter for label accuracy and quality",
+      "description": "Every constructed instance passes a two-reviewer quality-control loop before entering the benchmark.",
+      "details": ["Two independent annotators review every item", "Consensus is required for acceptance", "Disagreements are escalated to senior adjudication"],
+      "output": "Verified OP-Bench"
+    }
+  ],
+  "rq1": {
+    "title": "Does over-personalization exist?",
+    "kicker": "RQ1 · Evidence of the problem",
+    "summary": "Yes. Every evaluated memory-augmented method scores below its memory-free BASE counterpart on OP-Bench.",
+    "conclusion": "Memory augmentation is consistently associated with over-personalization. More elaborate memory systems, including MemU and MEMOS, generally show larger degradation, while simple RAG is milder.",
+    "columns": ["Fully irrelevant", "Baiting", "Repetition", "Fact", "Value", "Memory", "AVG.(OP)"],
+    "models": {
+      "GPT-4o-mini": [
+        {"method": "BASE", "values": [99.94, 99.60, 71.92, 81.00, 83.40, 68.45, 83.10], "drop": 0},
+        {"method": "RAG", "values": [77.61, 59.00, 63.29, 38.60, 43.40, 26.80, 55.96], "drop": 32.7},
+        {"method": "Mem0", "values": [48.15, 46.20, 55.98, 44.40, 51.00, 22.20, 46.32], "drop": 44.3},
+        {"method": "MemU", "values": [37.97, 37.40, 53.96, 37.80, 47.60, 22.30, 40.46], "drop": 51.3},
+        {"method": "MEMOS", "values": [42.74, 36.60, 54.73, 39.20, 44.40, 23.40, 41.86], "drop": 49.6}
+      ],
+      "Gemini-2.5-flash": [
+        {"method": "BASE", "values": [99.56, 95.20, 63.45, 88.60, 87.80, 26.40, 70.55], "drop": 0},
+        {"method": "RAG", "values": [68.99, 40.20, 52.78, 61.60, 67.00, 15.90, 52.10], "drop": 26.2},
+        {"method": "Mem0", "values": [32.47, 28.80, 46.93, 61.40, 62.30, 17.10, 37.13], "drop": 47.4},
+        {"method": "MemU", "values": [25.67, 22.40, 46.27, 55.80, 56.20, 14.00, 33.05], "drop": 53.2},
+        {"method": "MEMOS", "values": [30.49, 23.20, 39.97, 62.00, 62.60, 15.90, 33.93], "drop": 51.9}
+      ],
+      "Qwen3-32B": [
+        {"method": "BASE", "values": [99.94, 97.60, 64.13, 92.40, 94.00, 36.80, 72.91], "drop": 0},
+        {"method": "RAG", "values": [72.96, 62.40, 39.11, 59.80, 60.20, 26.80, 47.73], "drop": 34.5},
+        {"method": "Mem0", "values": [32.21, 29.20, 53.87, 53.60, 58.60, 18.30, 38.31], "drop": 47.5},
+        {"method": "MemU", "values": [27.30, 24.40, 53.15, 53.20, 49.80, 16.70, 34.95], "drop": 52.1},
+        {"method": "MEMOS", "values": [25.00, 27.35, 47.15, 52.10, 56.20, 20.10, 34.25], "drop": 53.0}
+      ],
+      "Qwen3-8B": [
+        {"method": "BASE", "values": [100.00, 98.20, 66.73, 91.60, 91.80, 33.90, 73.80], "drop": 0},
+        {"method": "RAG", "values": [70.94, 59.00, 38.12, 56.90, 60.60, 25.80, 46.38], "drop": 37.2},
+        {"method": "Mem0", "values": [38.29, 37.40, 54.66, 48.40, 59.30, 21.80, 42.12], "drop": 42.9},
+        {"method": "MemU", "values": [26.87, 26.60, 52.22, 40.80, 56.20, 18.50, 35.09], "drop": 52.5},
+        {"method": "MEMOS", "values": [33.72, 27.40, 50.65, 44.20, 55.40, 22.50, 37.17], "drop": 49.6}
+      ]
+    }
+  },
+  "rq2": {
+    "title": "Why does over-personalization occur?",
+    "kicker": "RQ2 · Mechanism analysis",
+    "summary": "The paper describes a memory-hijacking loop: memory is retrieved aggressively, receives disproportionate attention, and is applied indiscriminately.",
+    "evidence": [
+      {"id": "attention", "label": "Over-attention", "stat": "> 2×", "unit": "memory / query attention", "title": "Retrieved memory becomes a privileged signal", "description": "Length-normalized attention consistently favors retrieved memory tokens over the user's query across task settings."},
+      {"id": "retrieval", "label": "Over-retrieval", "stat": "≈80%", "unit": "MemU similarity in baiting", "title": "Retrieval does not know when to abstain", "description": "Fully irrelevant questions still receive low-similarity memories, while baiting questions can retrieve highly similar memories that are nevertheless misleading."},
+      {"id": "collapse", "label": "Response collapse", "stat": "lower", "unit": "diversity with memory", "title": "Memory narrows the response space", "description": "Embedding distributions become more concentrated with memory, and language shifts toward agreement-oriented or deferential phrasing."}
+    ]
+  },
+  "rq3": {
+    "title": "Can over-personalization be mitigated?",
+    "kicker": "RQ3 · Intervention study",
+    "summary": "Only partially. Post-processing can lift OP-Bench scores, but improvements often trade off against LoCoMo personalization performance and remain below the BASE oracle.",
+    "methods": ["Reminder", "Self-Critic", "Few-Shot-CoT", "ComoRAG", "MARAG"],
+    "deltaLabels": ["RAG", "Mem0", "MemU", "MEMOS"],
+    "deltas": {
+      "OP-Bench": {
+        "RAG": [3.5, 6.7, 1.5, 1.1, 4.1],
+        "Mem0": [17.2, 1.2, 20.0, 3.8, 18.0],
+        "MemU": [12.4, 2.8, 17.3, 3.2, 13.0],
+        "MEMOS": [10.6, 2.4, 14.6, 2.7, 12.5]
+      },
+      "LoCoMo": {
+        "RAG": [-1.1, 10.6, -4.4, 5.3, 2.7],
+        "Mem0": [2.5, 13.1, 9.9, 4.6, 10.8],
+        "MemU": [0.1, 13.1, -3.1, 0.2, 0.1],
+        "MEMOS": [-3.8, 6.2, -8.5, 0.0, -2.9]
+      }
+    },
+    "insights": [
+      {"value": "+20.0%", "label": "largest OP-Bench lift", "detail": "Mem0 + Few-Shot-CoT"},
+      {"value": "−8.5%", "label": "largest LoCoMo drop", "detail": "MEMOS + Few-Shot-CoT"},
+      {"value": "+6.7%", "label": "stable-method ceiling", "detail": "RAG + Self-Critic on OP-Bench"}
+    ]
+  },
+  "rq4": {
+    "title": "What is the timing cost of mitigation?",
+    "kicker": "RQ4-style supplementary timing view",
+    "summary": "The appendix latency breakdown shows that mitigation cost is dominated by post-processing and model response, not memory retrieval itself.",
+    "note": "Timing is reported in Appendix Table 11; the main paper does not label this analysis as a separate RQ4.",
+    "columns": ["Memory retrieval", "Post-processing", "Model response", "Total"],
+    "latency": [
+      {"method": "Reminder", "values": [44.11, 1168.17, 3226.23], "std": [55.82, 1968.61, 1625.32]},
+      {"method": "Self-Critic", "values": [41.82, 4128.18, 3408.09], "std": [47.13, 5696.26, 3196.89]},
+      {"method": "Few-Shot-CoT", "values": [37.69, 3209.49, 3072.11], "std": [21.31, 1250.14, 660.96]},
+      {"method": "ComoRAG", "values": [38.15, 2345.14, 3270.03], "std": [16.98, 332.72, 788.82]},
+      {"method": "MARAG", "values": [42.21, 966.81, 2712.88], "std": [51.32, 1463.19, 688.79]}
+    ]
+  }
+}

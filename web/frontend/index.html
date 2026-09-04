@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      id="page-description"
+      name="description"
+      data-i18n="metaDescription"
+      data-i18n-attr="content"
+      content="An interactive research explorer for the OP-Bench over-personalization benchmark."
+    />
+    <title data-i18n="pageTitle">OP-Bench · Research Explorer</title>
+    <link rel="stylesheet" href="./styles.css?v=readability-2" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="site-header">
+        <a class="brand" href="#top" aria-label="OP-Bench home" data-i18n="brandAria" data-i18n-attr="aria-label">
+          <span class="brand-mark">OP</span>
+          <span>
+            <strong>OP-Bench</strong>
+            <small data-i18n="brandSubtitle">research explorer</small>
+          </span>
+        </a>
+        <div class="header-actions">
+          <button id="language-toggle" class="language-toggle" type="button" aria-label="Switch to Chinese">中文</button>
+          <a class="header-link" href="https://github.com/yulinlp/OP-Bench" target="_blank" rel="noreferrer">
+          <span data-i18n="githubLink">GitHub</span> <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </header>
+
+      <main id="top">
+        <section class="hero section-pad">
+          <div class="hero-copy reveal">
+            <p class="eyebrow"><span class="eyebrow-dot"></span> <span data-i18n="heroEyebrow">Benchmarking memory, with restraint</span></p>
+            <h1 data-i18n-html="heroTitleHtml">When personalization<br /><em>goes too far.</em></h1>
+            <p class="hero-lede" data-i18n="heroLede">
+              OP-Bench probes the failure modes that appear when conversational agents retrieve and apply user memory without enough situational judgment.
+            </p>
+            <div class="hero-actions">
+              <a class="button button-primary" href="#pipeline"><span data-i18n="explorePipeline">Explore the pipeline</span> <span>↓</span></a>
+              <a class="button button-quiet" href="#results"><span data-i18n="jumpFindings">Jump to findings</span> <span>↗</span></a>
+            </div>
+            <p class="hero-note" data-i18n="heroNote">A paper-grounded, interactive summary · data, examples, and results</p>
+          </div>
+          <div class="hero-art reveal delay-1" aria-label="Illustration of relevant and irrelevant memory signals" data-i18n="heroArtAria" data-i18n-attr="aria-label">
+            <div class="orb orb-large"></div>
+            <div class="orb orb-small"></div>
+            <div class="signal signal-memory">
+              <span class="signal-dot"></span>
+              <span data-i18n="retrievedMemory">retrieved memory</span>
+              <b>2×</b>
+            </div>
+            <div class="signal signal-query">
+              <span class="signal-dot"></span>
+              <span data-i18n="userQuery">user query</span>
+              <b>1×</b>
+            </div>
+            <div class="hero-card hero-card-main">
+              <span class="mini-label" data-i18n="opbenchSignal">OP-BENCH SIGNAL</span>
+              <div class="signal-meter"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+              <strong data-i18n="memoryHijacking">Memory hijacking</strong>
+              <p data-i18n="usefulContext">Useful context becomes a privileged cue.</p>
+            </div>
+            <div class="hero-card hero-card-float">
+              <span class="mini-label" data-i18n="score">SCORE</span>
+              <strong>26.2–61.1%</strong>
+              <p data-i18n="dropVsBase">drop vs. BASE</p>
+            </div>
+            <div class="hero-grid" aria-hidden="true"></div>
+          </div>
+        </section>
+
+        <section class="overview section-pad" aria-labelledby="overview-heading">
+          <div class="section-heading reveal">
+            <div>
+              <p class="eyebrow" data-i18n="atAGlance">At a glance</p>
+              <h2 id="overview-heading" data-i18n-html="overviewTitleHtml">A benchmark for <span>appropriate</span> memory.</h2>
+            </div>
+            <p class="section-intro" data-i18n="overviewIntro">The benchmark turns long-horizon conversations into controlled probes for relevance, diversity, and epistemic independence.</p>
+          </div>
+          <div id="overview-cards" class="stat-grid" aria-live="polite"></div>
+          <div id="category-overview" class="category-strip" aria-live="polite"></div>
+          <div class="section-switcher reveal">
+            <div class="section-switcher-head">
+              <div>
+                <p class="eyebrow" data-i18n="benchmarkGuide">01–03 / Benchmark guide</p>
+                <p class="section-switcher-copy" data-i18n="guideCopy">Move through the benchmark story one chapter at a time.</p>
+              </div>
+              <span class="section-switcher-hint"><span data-i18n="selectChapter">Select a chapter</span> <span aria-hidden="true">↗</span></span>
+            </div>
+            <div id="section-tabs" class="section-tabs" role="tablist" aria-label="Benchmark chapters" data-i18n="benchmarkChapters" data-i18n-attr="aria-label">
+              <button class="section-tab" type="button" role="tab" aria-selected="true" aria-controls="pipeline" data-section-tab="pipeline">
+                <span class="section-tab-number">01</span>
+                <span class="section-tab-copy"><strong data-i18n="sectionPipelineLabel">Data construction</strong><small data-i18n="sectionPipelineDescription">Build controlled diagnostic probes</small></span>
+                <span class="section-tab-arrow" aria-hidden="true">↗</span>
+              </button>
+              <button class="section-tab" type="button" role="tab" aria-selected="false" aria-controls="examples" data-section-tab="examples">
+                <span class="section-tab-number">02</span>
+                <span class="section-tab-copy"><strong data-i18n="sectionExamplesLabel">QA examples</strong><small data-i18n="sectionExamplesDescription">Inspect representative benchmark prompts</small></span>
+                <span class="section-tab-arrow" aria-hidden="true">↗</span>
+              </button>
+              <button class="section-tab" type="button" role="tab" aria-selected="false" aria-controls="results" data-section-tab="results">
+                <span class="section-tab-number">03</span>
+                <span class="section-tab-copy"><strong data-i18n="sectionResultsLabel">Experimental results</strong><small data-i18n="sectionResultsDescription">Compare findings across research questions</small></span>
+                <span class="section-tab-arrow" aria-hidden="true">↗</span>
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <div id="explorer-pages" class="explorer-pages">
+          <section id="pipeline" class="explorer-page pipeline-section section-pad dark-section is-active" data-explorer-page="pipeline" aria-labelledby="pipeline-heading">
+            <div class="section-heading section-heading-light reveal">
+              <div>
+                <p class="eyebrow eyebrow-light" data-i18n="pipelineEyebrow">01 / Data construction</p>
+                <h2 id="pipeline-heading" data-i18n-html="pipelineTitleHtml">From dialogue history<br /><span>to diagnostic probe.</span></h2>
+              </div>
+              <div class="section-heading-side">
+                <p data-i18n="pipelineDescription">Follow the three-stage path. Each stage preserves a different kind of control over personalization.</p>
+                <div class="pipeline-actions">
+                  <button id="play-pipeline" class="text-button" type="button"><span class="play-icon">▶</span> <span data-i18n="playConstruction">Play construction flow</span></button>
+                  <button id="reset-pipeline" class="text-button text-button-muted" type="button"><span class="reset-icon">↺</span> <span data-i18n="reset">Reset</span></button>
+                </div>
+              </div>
+            </div>
+            <div id="pipeline-stage" class="pipeline-stage" aria-live="polite"></div>
+          </section>
+
+          <section id="examples" class="explorer-page examples-section section-pad" data-explorer-page="examples" aria-labelledby="examples-heading" hidden>
+            <div class="section-heading reveal">
+              <div>
+                <p class="eyebrow" data-i18n="examplesEyebrow">02 / QA examples</p>
+                <h2 id="examples-heading" data-i18n-html="examplesTitleHtml">Small prompts,<br /><span>revealing failure modes.</span></h2>
+              </div>
+              <p class="section-intro" data-i18n="examplesIntro">Browse representative instances from the checked-in benchmark task file. The examples are intentionally ordinary: the risk lives in the response.</p>
+            </div>
+            <div id="example-tabs" class="pill-tabs" role="tablist" aria-label="Benchmark categories" data-i18n="benchmarkCategories" data-i18n-attr="aria-label"></div>
+            <div id="example-content" class="example-content" aria-live="polite"></div>
+          </section>
+
+          <section id="results" class="explorer-page results-section section-pad dark-section" data-explorer-page="results" aria-labelledby="results-heading" hidden>
+            <div class="section-heading section-heading-light reveal">
+              <div>
+                <p class="eyebrow eyebrow-light" data-i18n="resultsEyebrow">03 / Experimental results</p>
+                <h2 id="results-heading" data-i18n-html="resultsTitleHtml">The memory<br /><span>trade-off, visualized.</span></h2>
+              </div>
+              <p class="section-heading-side results-intro" data-i18n="resultsIntro">Explore the paper's main result table, mechanism analysis, mitigation study, and supplementary timing view.</p>
+            </div>
+            <div id="result-tabs" class="result-tabs" role="tablist" aria-label="Research questions" data-i18n="researchQuestions" data-i18n-attr="aria-label"></div>
+            <div id="result-content" class="result-content" aria-live="polite"></div>
+          </section>
+        </div>
+
+        <section class="closing section-pad" aria-labelledby="closing-heading">
+          <div class="closing-mark">OP</div>
+          <div>
+            <p class="eyebrow" data-i18n="closingEyebrow">A useful design question</p>
+            <h2 id="closing-heading" data-i18n-html="closingTitleHtml">Can an agent remember you<br /><em>without talking over you?</em></h2>
+          </div>
+          <p class="closing-copy" data-i18n="closingCopy">OP-Bench frames personalization as a control problem: retrieve less aggressively, attend more selectively, and keep the user's current intent in charge.</p>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <span data-i18n="footerLeft">OP-Bench · Benchmarking over-personalization</span>
+        <span data-i18n="footerRight">Interactive demo · paper-grounded data</span>
+      </footer>
+    </div>
+    <script defer src="./i18n.js"></script>
+    <script defer src="./app.js"></script>
+  </body>
+</html>

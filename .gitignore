@@ -8,6 +8,8 @@ __pycache__/
 .mypy_cache/
 .ruff_cache/
 .DS_Store
+.pages/
+_site/
 
 # Local model/vector-store/cache files
 artifacts/
@@ -23,4 +25,3 @@ models/
 # Evaluation outputs can be large and may contain private prompts/responses.
 results/*
 !results/.gitkeep
-

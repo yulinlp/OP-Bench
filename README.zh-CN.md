@@ -238,6 +238,14 @@ python web/backend/server.py --host 127.0.0.1 --port 8765
 也支持手动使用上一步和下一步按钮切换。接口路由和实现说明请参阅
 [web/README.md](web/README.md)。
 
+### 使用 GitHub Pages 发布网站
+
+网站演示也可以作为纯静态网站发布。当前端无法访问 Python 接口时，
+会自动回退到仓库中提供的 JSON 数据。仓库中的 GitHub Actions 工作流
+会在相关文件推送到 <code>main</code> 分支时构建 Pages 部署文件并发布。
+请在 Settings → Pages 中将来源设置为 **GitHub Actions**，首次部署成功
+后可访问 <https://yulinlp.github.io/OP-Bench/>。
+
 ### 3. 运行仓库中的代理
 
 为每个 LoCoMo 用户准备一个历史文件：

@@ -247,6 +247,15 @@ The construction chapter supports automatic playback as well as manual
 previous/next navigation. See [web/README.md](web/README.md) for API routes
 and implementation notes.
 
+### Publish the demo with GitHub Pages
+
+The demo can also be published as a static site. The frontend falls back to
+the checked-in JSON payloads when the Python API is unavailable. The included
+GitHub Actions workflow builds the Pages artifact and deploys it when relevant
+files are pushed to <code>main</code>. Enable **GitHub Actions** under Settings
+→ Pages, then visit <https://yulinlp.github.io/OP-Bench/> after the first
+successful deployment.
+
 ### 3. Run the included agents
 
 Prepare one history file per LoCoMo user:
