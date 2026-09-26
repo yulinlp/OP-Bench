@@ -1,4 +1,9 @@
-# OP-Bench: Benchmarking Over-Personalization for Memory-Augmented Personalized Conversational Agents
+<h1 align="center">OP-Bench: Benchmarking Over-Personalization<br>for Memory-Augmented Personalized Conversational Agents</h1>
+
+<p align="center">
+  Yulin Hu · Zimo Long · Jiahe Guo · Xingyu Sui<br>
+  Xing Fu · Weixiang Zhao · Yanyan Zhao · Bing Qin
+</p>
 
 <p align="center">
   <a href="https://arxiv.org/abs/2601.13722">
@@ -13,26 +18,19 @@
 </p>
 
 <p align="center">
-  <a href="README.md">
-    <img src="https://img.shields.io/badge/English-README-1f6feb.svg?style=flat-square" alt="English README">
-  </a>
-  <a href="README.zh-CN.md">
-    <img src="https://img.shields.io/badge/%E4%B8%AD%E6%96%87-README.zh--CN-16a34a.svg?style=flat-square" alt="中文 README">
-  </a>
-</p>
-
-<p align="center">
-  <strong>A diagnostic benchmark for measuring when long-term memory makes a conversational agent personalize too much, too often, or in the wrong way.</strong>
-</p>
-
-<p align="center">
   <a href="https://arxiv.org/abs/2601.13722">Paper</a>
   ·
   <a href="#quick-start">Quick start</a>
   ·
   <a href="data/README.md">Data</a>
   ·
-  <a href="#citation">Citation</a>
+  <a href="#citation">Citation</a> · <a href="README.zh-CN.md">中文</a>
+</p>
+
+<p align="center"><b>1,700 verified instances &nbsp; · &nbsp; 20 users &nbsp; · &nbsp; 3 failure modes</b></p>
+
+<p align="center">
+  <a href="docs/figures/figure-3-pipeline.png"><img src="docs/figures/figure-3-pipeline.png" alt="OP-Bench construction pipeline" width="900"></a>
 </p>
 
 ## Overview
@@ -66,7 +64,7 @@ and Repetition—using complementary model-based and embedding-based metrics.
 | **Repetition** | Whether semantically distinct queries receive nearly identical personalized responses | One repetition setting |
 
 <p align="center">
-  <img src="docs/figures/figure-1-taxonomy.png" alt="Illustration of the three OP-Bench failure modes: irrelevance, sycophancy, and repetition" width="720">
+  <a href="docs/figures/figure-1-taxonomy.png"><img src="docs/figures/figure-1-taxonomy.png" alt="Illustration of the three OP-Bench failure modes: irrelevance, sycophancy, and repetition" width="420"></a>
 </p>
 <p align="center"><em>Illustration of the three over-personalization categories.</em></p>
 
@@ -80,11 +78,6 @@ The benchmark is built in three stages:
    Sycophancy, and Repetition, including the relevant subcategories.
 3. **Human review:** independently review each candidate, adjudicate
    disagreements, and retain only verified instances.
-
-<p align="center">
-  <img src="docs/figures/figure-3-pipeline.png" alt="Three-stage OP-Bench construction pipeline from initialization to task construction and human review" width="100%">
-</p>
-<p align="center"><em>OP-Bench construction pipeline (paper Figure 3).</em></p>
 
 The final dataset distribution is:
 
@@ -127,15 +120,15 @@ The four panels below reproduce the paper's radar comparison for the
 evaluated model families. The common legend is shown above the panels.
 
 <p align="center">
-  <img src="docs/figures/figure-2-legend.png" alt="Legend for BASE, RAG, Mem0, MEMOS, and MemU" width="620">
+  <a href="docs/figures/figure-2-legend.png"><img src="docs/figures/figure-2-legend.png" alt="Legend for BASE, RAG, Mem0, MEMOS, and MemU" width="620"></a>
 </p>
 <p align="center">
-  <img src="docs/figures/figure-2-gpt4o-mini.png" alt="Radar chart for GPT-4o-mini" width="47%">
-  <img src="docs/figures/figure-2-gemini-2-5-flash.png" alt="Radar chart for Gemini-2.5-flash" width="47%">
+  <a href="docs/figures/figure-2-gpt4o-mini.png"><img src="docs/figures/figure-2-gpt4o-mini.png" alt="Radar chart for GPT-4o-mini" width="47%"></a>
+  <a href="docs/figures/figure-2-gemini-2-5-flash.png"><img src="docs/figures/figure-2-gemini-2-5-flash.png" alt="Radar chart for Gemini-2.5-flash" width="47%"></a>
 </p>
 <p align="center">
-  <img src="docs/figures/figure-2-qwen3-235b.png" alt="Radar chart for Qwen3-235B" width="47%">
-  <img src="docs/figures/figure-2-qwen3-32b.png" alt="Radar chart for Qwen3-32B" width="47%">
+  <a href="docs/figures/figure-2-qwen3-235b.png"><img src="docs/figures/figure-2-qwen3-235b.png" alt="Radar chart for Qwen3-235B" width="47%"></a>
+  <a href="docs/figures/figure-2-qwen3-32b.png"><img src="docs/figures/figure-2-qwen3-32b.png" alt="Radar chart for Qwen3-32B" width="47%"></a>
 </p>
 <p align="center"><em>OP-Bench scores across model and memory configurations (paper Figure 2).</em></p>
 
@@ -155,32 +148,26 @@ may have high superficial similarity to stored memories, making retrieval
 alone an insufficient safeguard.
 
 <p align="center">
-  <img src="docs/figures/figure-5-retrieval.png" alt="Bar chart comparing retrieval relevance for fully irrelevant and baiting queries across RAG, MemOS, MemU, and Mem0" width="760">
+  <a href="docs/figures/figure-5-retrieval.png"><img src="docs/figures/figure-5-retrieval.png" alt="Bar chart comparing retrieval relevance for fully irrelevant and baiting queries across RAG, MemOS, MemU, and Mem0" width="620"></a>
 </p>
 <p align="center"><em>Retrieved-memory similarity on the Irrelevance task (paper Figure 5).</em></p>
 
 ## What's included
 
-This public repository is organized around the reproducible benchmark path:
+The repository includes:
 
 - benchmark data and construction/evaluation prompts;
 - a resumable benchmark builder;
 - search, generation, scoring, and post-processing utilities;
-- the in-scope <code>LDAgent</code> and <code>SimpleRAGAgent</code> implementations;
+- <code>LDAgent</code> and <code>SimpleRAGAgent</code> implementations;
 - an HTTP adapter for an external MemOS service;
 - a dependency-light web demo for the benchmark story and results;
 - tests for configuration, scoring, data types, and the web demo.
 
-The repository does **not** vendor the upstream MemOS server, model weights,
-private deployment scripts, unrelated experimental agents, or generated
-results. Plotting scripts from the original research workspace are also
-excluded; the key paper figures used here are stored under
-[docs/figures/](docs/figures/).
-
 ## Repository layout
 
 ~~~text
-OPBench-public/
+OP-Bench/
 ├── configs/
 │   └── evaluation.example.yaml
 ├── data/
@@ -229,13 +216,11 @@ Create a local environment file from the template:
 cp .env.example .env
 ~~~
 
-Fill in the provider variables locally. Credentials and endpoint URLs must
-remain in <code>.env</code> or another ignored local configuration; never put
-them in source files, YAML committed to Git, or shell scripts.
+Set your model endpoint and API credentials in `.env`.
 
 ### 2. Launch the local web demo
 
-The demo is self-contained and does not require model credentials:
+Start the demo server:
 
 ~~~bash
 python web/backend/server.py --host 127.0.0.1 --port 8765
@@ -246,15 +231,6 @@ data construction, representative QA examples, and experimental results.
 The construction chapter supports automatic playback as well as manual
 previous/next navigation. See [web/README.md](web/README.md) for API routes
 and implementation notes.
-
-### Publish the demo with GitHub Pages
-
-The demo can also be published as a static site. The frontend falls back to
-the checked-in JSON payloads when the Python API is unavailable. The included
-GitHub Actions workflow builds the Pages artifact and deploys it when relevant
-files are pushed to <code>main</code>. Enable **GitHub Actions** under Settings
-→ Pages, then visit <https://yulinlp.github.io/OP-Bench/> after the first
-successful deployment.
 
 ### 3. Run the included agents
 
@@ -311,9 +287,7 @@ python -m opbench.cli --help
 The available context methods include <code>none</code>,
 <code>self_recheck</code>, <code>reminder</code>, <code>self_critic</code>,
 <code>few_shot_chain_of_thought</code>, <code>comorag</code>, and
-<code>marag</code>. The public implementation records filtered context rather
-than hidden chain-of-thought traces. Generated artifacts and results are
-written to ignored directories by default.
+<code>marag</code>. Results are saved under `results/`.
 
 ### Rebuild the benchmark
 
@@ -358,10 +332,8 @@ views.
 ## License and data
 
 See [NOTICE.md](NOTICE.md) for provenance and redistribution notes. The
-repository currently does not declare a software license; add or confirm the
-appropriate license before redistributing the code. LoCoMo data, model
+repository currently does not declare a software license. LoCoMo data, model
 checkpoints, and third-party services remain subject to their original terms.
-No model weights or credentials are bundled in this release.
 
 ## Citation
 

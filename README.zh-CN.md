@@ -1,4 +1,9 @@
-# OP-Bench：面向记忆增强个性化对话代理的过度个性化基准
+<h1 align="center">OP-Bench：面向记忆增强个性化对话代理的<br>过度个性化基准</h1>
+
+<p align="center">
+  Yulin Hu · Zimo Long · Jiahe Guo · Xingyu Sui<br>
+  Xing Fu · Weixiang Zhao · Yanyan Zhao · Bing Qin
+</p>
 
 <p align="center">
   <a href="https://arxiv.org/abs/2601.13722">
@@ -13,26 +18,19 @@
 </p>
 
 <p align="center">
-  <a href="README.md">
-    <img src="https://img.shields.io/badge/English-README-1f6feb.svg?style=flat-square" alt="英文 README">
-  </a>
-  <a href="README.zh-CN.md">
-    <img src="https://img.shields.io/badge/%E4%B8%AD%E6%96%87-README.zh--CN-16a34a.svg?style=flat-square" alt="中文 README">
-  </a>
-</p>
-
-<p align="center">
-  <strong>一个用于衡量长期记忆何时导致对话代理过度、过频或不恰当地进行个性化的诊断性基准。</strong>
-</p>
-
-<p align="center">
   <a href="https://arxiv.org/abs/2601.13722">论文</a>
   ·
   <a href="#快速开始">快速开始</a>
   ·
   <a href="data/README.md">数据</a>
   ·
-  <a href="#引用">引用</a>
+  <a href="#引用">引用</a> · <a href="README.md">English</a>
+</p>
+
+<p align="center"><b>1,700 个核验实例 &nbsp; · &nbsp; 20 位用户 &nbsp; · &nbsp; 3 类失败模式</b></p>
+
+<p align="center">
+  <a href="docs/figures/figure-3-pipeline.png"><img src="docs/figures/figure-3-pipeline.png" alt="OP-Bench construction pipeline" width="900"></a>
 </p>
 
 ## 概览
@@ -64,7 +62,7 @@ OP-Bench 包含从长时程对话历史中构建并经过人工核验的 1,700 �
 | **重复性（Repetition）** | 对语义不同的问题，代理是否生成几乎相同的个性化回答 | 单一重复性设置 |
 
 <p align="center">
-  <img src="docs/figures/figure-1-taxonomy.png" alt="OP-Bench 三类失败模式：无关性、谄媚性和重复性" width="720">
+  <a href="docs/figures/figure-1-taxonomy.png"><img src="docs/figures/figure-1-taxonomy.png" alt="OP-Bench 三类失败模式：无关性、谄媚性和重复性" width="420"></a>
 </p>
 <p align="center"><em>三类过度个性化行为示意图。</em></p>
 
@@ -77,11 +75,6 @@ OP-Bench 包含从长时程对话历史中构建并经过人工核验的 1,700 �
    并覆盖相应子类别。
 3. **人工审核：** 对候选实例进行独立审核，对存在分歧的样本进行
    裁决，只保留经过核验的实例。
-
-<p align="center">
-  <img src="docs/figures/figure-3-pipeline.png" alt="OP-Bench 从初始化到任务构建再到人工审核的三阶段流程" width="100%">
-</p>
-<p align="center"><em>OP-Bench 数据构建流程（论文图 3）。</em></p>
 
 最终数据集的分布如下：
 
@@ -121,15 +114,15 @@ OP-Bench 的分数定义为**越高越好**：分数越高，说明回答越能�
 下面四个面板复现论文中不同模型系列的雷达图，上方为统一图例。
 
 <p align="center">
-  <img src="docs/figures/figure-2-legend.png" alt="BASE、RAG、Mem0、MEMOS 和 MemU 的图例" width="620">
+  <a href="docs/figures/figure-2-legend.png"><img src="docs/figures/figure-2-legend.png" alt="BASE、RAG、Mem0、MEMOS 和 MemU 的图例" width="620"></a>
 </p>
 <p align="center">
-  <img src="docs/figures/figure-2-gpt4o-mini.png" alt="GPT-4o-mini 雷达图" width="47%">
-  <img src="docs/figures/figure-2-gemini-2-5-flash.png" alt="Gemini-2.5-flash 雷达图" width="47%">
+  <a href="docs/figures/figure-2-gpt4o-mini.png"><img src="docs/figures/figure-2-gpt4o-mini.png" alt="GPT-4o-mini 雷达图" width="47%"></a>
+  <a href="docs/figures/figure-2-gemini-2-5-flash.png"><img src="docs/figures/figure-2-gemini-2-5-flash.png" alt="Gemini-2.5-flash 雷达图" width="47%"></a>
 </p>
 <p align="center">
-  <img src="docs/figures/figure-2-qwen3-235b.png" alt="Qwen3-235B 雷达图" width="47%">
-  <img src="docs/figures/figure-2-qwen3-32b.png" alt="Qwen3-32B 雷达图" width="47%">
+  <a href="docs/figures/figure-2-qwen3-235b.png"><img src="docs/figures/figure-2-qwen3-235b.png" alt="Qwen3-235B 雷达图" width="47%"></a>
+  <a href="docs/figures/figure-2-qwen3-32b.png"><img src="docs/figures/figure-2-qwen3-32b.png" alt="Qwen3-32B 雷达图" width="47%"></a>
 </p>
 <p align="center"><em>不同模型和记忆配置下的 OP-Bench 分数（论文图 2）。</em></p>
 
@@ -149,7 +142,7 @@ OP-Bench 的分数定义为**越高越好**：分数越高，说明回答越能�
 有效避免过度个性化。
 
 <p align="center">
-  <img src="docs/figures/figure-5-retrieval.png" alt="RAG、MemOS、MemU 和 Mem0 在完全无关问题与诱导型问题上的检索相关性对比" width="760">
+  <a href="docs/figures/figure-5-retrieval.png"><img src="docs/figures/figure-5-retrieval.png" alt="RAG、MemOS、MemU 和 Mem0 在完全无关问题与诱导型问题上的检索相关性对比" width="620"></a>
 </p>
 <p align="center"><em>无关性任务上的检索记忆相似度（论文图 5）。</em></p>
 
@@ -172,7 +165,7 @@ README 使用的论文图保存在 [docs/figures/](docs/figures/)。
 ## 目录结构
 
 ~~~text
-OPBench-public/
+OP-Bench/
 ├── configs/
 │   └── evaluation.example.yaml
 ├── data/
