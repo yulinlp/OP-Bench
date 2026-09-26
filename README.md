@@ -116,19 +116,16 @@ Across models and memory systems, the paper reports relative drops of
 
 ### Cross-model comparison
 
-The four panels below reproduce the paper's radar comparison for the
-evaluated model families. The common legend is shown above the panels.
-
 <p align="center">
-  <a href="docs/figures/figure-2-legend.png"><img src="docs/figures/figure-2-legend.png" alt="Legend for BASE, RAG, Mem0, MEMOS, and MemU" width="620"></a>
+  <a href="docs/figures/figure-2-legend.png"><img src="docs/figures/figure-2-legend.png" alt="Legend for BASE, RAG, Mem0, MEMOS, and MemU" width="460"></a>
 </p>
 <p align="center">
-  <a href="docs/figures/figure-2-gpt4o-mini.png"><img src="docs/figures/figure-2-gpt4o-mini.png" alt="Radar chart for GPT-4o-mini" width="47%"></a>
-  <a href="docs/figures/figure-2-gemini-2-5-flash.png"><img src="docs/figures/figure-2-gemini-2-5-flash.png" alt="Radar chart for Gemini-2.5-flash" width="47%"></a>
+  <a href="docs/figures/figure-2-gpt4o-mini.png"><img src="docs/figures/figure-2-gpt4o-mini.png" alt="Radar chart for GPT-4o-mini" width="300"></a>
+  <a href="docs/figures/figure-2-gemini-2-5-flash.png"><img src="docs/figures/figure-2-gemini-2-5-flash.png" alt="Radar chart for Gemini-2.5-flash" width="300"></a>
 </p>
 <p align="center">
-  <a href="docs/figures/figure-2-qwen3-235b.png"><img src="docs/figures/figure-2-qwen3-235b.png" alt="Radar chart for Qwen3-235B" width="47%"></a>
-  <a href="docs/figures/figure-2-qwen3-32b.png"><img src="docs/figures/figure-2-qwen3-32b.png" alt="Radar chart for Qwen3-32B" width="47%"></a>
+  <a href="docs/figures/figure-2-qwen3-235b.png"><img src="docs/figures/figure-2-qwen3-235b.png" alt="Radar chart for Qwen3-235B" width="300"></a>
+  <a href="docs/figures/figure-2-qwen3-32b.png"><img src="docs/figures/figure-2-qwen3-32b.png" alt="Radar chart for Qwen3-32B" width="300"></a>
 </p>
 <p align="center"><em>OP-Bench scores across model and memory configurations (paper Figure 2).</em></p>
 

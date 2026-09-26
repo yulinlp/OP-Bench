@@ -111,18 +111,16 @@ OP-Bench 的分数定义为**越高越好**：分数越高，说明回答越能�
 
 ### 不同模型的对比
 
-下面四个面板复现论文中不同模型系列的雷达图，上方为统一图例。
-
 <p align="center">
-  <a href="docs/figures/figure-2-legend.png"><img src="docs/figures/figure-2-legend.png" alt="BASE、RAG、Mem0、MEMOS 和 MemU 的图例" width="620"></a>
+  <a href="docs/figures/figure-2-legend.png"><img src="docs/figures/figure-2-legend.png" alt="BASE、RAG、Mem0、MEMOS 和 MemU 的图例" width="460"></a>
 </p>
 <p align="center">
-  <a href="docs/figures/figure-2-gpt4o-mini.png"><img src="docs/figures/figure-2-gpt4o-mini.png" alt="GPT-4o-mini 雷达图" width="47%"></a>
-  <a href="docs/figures/figure-2-gemini-2-5-flash.png"><img src="docs/figures/figure-2-gemini-2-5-flash.png" alt="Gemini-2.5-flash 雷达图" width="47%"></a>
+  <a href="docs/figures/figure-2-gpt4o-mini.png"><img src="docs/figures/figure-2-gpt4o-mini.png" alt="GPT-4o-mini 雷达图" width="300"></a>
+  <a href="docs/figures/figure-2-gemini-2-5-flash.png"><img src="docs/figures/figure-2-gemini-2-5-flash.png" alt="Gemini-2.5-flash 雷达图" width="300"></a>
 </p>
 <p align="center">
-  <a href="docs/figures/figure-2-qwen3-235b.png"><img src="docs/figures/figure-2-qwen3-235b.png" alt="Qwen3-235B 雷达图" width="47%"></a>
-  <a href="docs/figures/figure-2-qwen3-32b.png"><img src="docs/figures/figure-2-qwen3-32b.png" alt="Qwen3-32B 雷达图" width="47%"></a>
+  <a href="docs/figures/figure-2-qwen3-235b.png"><img src="docs/figures/figure-2-qwen3-235b.png" alt="Qwen3-235B 雷达图" width="300"></a>
+  <a href="docs/figures/figure-2-qwen3-32b.png"><img src="docs/figures/figure-2-qwen3-32b.png" alt="Qwen3-32B 雷达图" width="300"></a>
 </p>
 <p align="center"><em>不同模型和记忆配置下的 OP-Bench 分数（论文图 2）。</em></p>
 
