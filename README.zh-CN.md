@@ -10,7 +10,7 @@
     <img src="https://img.shields.io/badge/arXiv-2601.13722-b31b1b.svg?style=flat-square" alt="arXiv：2601.13722">
   </a>
   <a href="https://2026.emnlp.org/">
-    <img src="https://img.shields.io/badge/EMNLP-2026-6f42c1.svg?style=flat-square" alt="EMNLP 2026">
+    <img src="https://img.shields.io/badge/EMNLP-2026-2E8B57?style=flat-square" alt="EMNLP 2026">
   </a>
   <a href="https://yulinlp.github.io/OP-Bench/">
     <img src="https://img.shields.io/badge/%E7%BD%91%E7%AB%99-%E5%B7%B2%E4%B8%8A%E7%BA%BF-2563eb.svg?style=flat-square" alt="网站已上线">
